@@ -20,8 +20,9 @@ suite =
 literalTests : Test
 literalTests =
     describe "literals"
-        [ test "true" <|
-            \_ -> Expect.equal (Ok <| Literal <| Bool True) (parse "true")
+        [ only <|
+            test "true" <|
+                \_ -> Expect.equal (Ok <| Literal <| Bool True) (parse "true")
         , test "false" <|
             \_ -> Expect.equal (Ok <| Literal <| Bool False) (parse "false")
         , fuzz int "int" <|
@@ -45,11 +46,10 @@ unaryOpTests =
 
 binaryOpTests : Test
 binaryOpTests =
-    only <|
-        describe "binaryOp"
-            [ test "eq" <|
-                \_ -> Expect.equal (Ok <| BinaryOp <| Eq (Literal <| Int 1) (Literal <| Int 2)) (parse "1 == 2")
-            ]
+    describe "binaryOp"
+        [ test "eq" <|
+            \_ -> Expect.equal (Ok <| BinaryOp <| Eq (Literal <| Int 1) (Literal <| Int 2)) (parse "1 == 2")
+        ]
 
 
 complexTests : Test

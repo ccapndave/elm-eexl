@@ -12,10 +12,21 @@ parse str =
 
 expr : Parser Expr
 expr =
+    term
+
+
+term : Parser Expr
+term =
     oneOf
-        [ literal |> map Literal
-        , unaryOp |> map UnaryOp
+        [ succeed identity
+            |. symbol "("
+            |. spaces
+            |= lazy (\_ -> expr)
+            |. spaces
+            |. symbol ")"
         , binaryOp |> map BinaryOp
+        , unaryOp |> map UnaryOp
+        , literal |> map Literal
         ]
 
 
