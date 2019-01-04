@@ -6,7 +6,7 @@ elm-eexl (Elm Expression Language) is a simple expression parser and evaluator f
 
 ## What's it for?
 
-We develop education software where the student follows different paths through courses depending on how they are getting on.  For example, if they have attained a certain score in an exercise and have some minimum percentage over the whole unit we might send them down path A, or if they need to do some more work on a particular subject we might send them down path B.  This package allows us to evaluate the expressions implementing this logic, which we load at runtime.
+We develop educational software where the student follows different paths through courses depending on how they are getting on.  For example, if they have attained a certain score in an exercise and have some minimum percentage over the whole unit we might send them down path A, or if they need to do some more work on a particular subject we might send them down path B.  This package allows us to evaluate the expressions implementing this logic, which we load at runtime.
 
 ## Technicalities
 
